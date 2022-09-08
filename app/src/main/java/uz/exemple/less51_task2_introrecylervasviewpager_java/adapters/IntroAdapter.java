@@ -43,7 +43,7 @@ public class IntroAdapter extends RecyclerView.Adapter<IntroAdapter.ViewHolder> 
         holder.title.setText(intro.getTitle());
         holder.desc.setText(intro.getDesc());
         holder.lottie.setAnimation(intro.getLottyName());
-        if(position == 2){
+        /*if(position == 2){
             holder.btn_start.setVisibility(View.VISIBLE);
             holder.skip.setVisibility(View.GONE);
             holder.circle2.setBackgroundResource(R.drawable.circle_brushed);
@@ -68,7 +68,7 @@ public class IntroAdapter extends RecyclerView.Adapter<IntroAdapter.ViewHolder> 
             public void onClick(View v) {
                 openMainActivity(holder.itemView.getContext());
             }
-        });
+        });*/
     }
 
     @Override
@@ -77,27 +77,18 @@ public class IntroAdapter extends RecyclerView.Adapter<IntroAdapter.ViewHolder> 
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder{
-        TextView title,desc,skip,circle0,circle1,circle2;
+        TextView title,desc;
         LottieAnimationView lottie;
-        Button btn_start;
+
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
             title = itemView.findViewById(R.id.tv_title_f1);
-            circle0 = itemView.findViewById(R.id.tv_circle_0);
-            circle1 = itemView.findViewById(R.id.tv_circle_1);
-            circle2 = itemView.findViewById(R.id.tv_circle_2);
             desc = itemView.findViewById(R.id.tv_desc_f1);
             lottie = itemView.findViewById(R.id.lottie_intro);
-            skip = itemView.findViewById(R.id.tv_skip_f1);
-            btn_start = itemView.findViewById(R.id.btn_start);
             context = itemView.getContext();
         }
     }
 
-    void openMainActivity(Context context){
-        Intent intent = new Intent(context, MainActivity.class);
-        context.startActivity(intent);
-        ((Activity)context).finish();
-    }
+
 }
